@@ -26,9 +26,9 @@ import com.vaadin.sass.internal.parser.StringInterpolationSequence;
 public class RuleNode extends Node implements IVariableNode, NodeWithUrlContent {
     private static final long serialVersionUID = 6653493127869037022L;
 
-    StringInterpolationSequence variable;
-    SassListItem value = null;
-    String comment;
+    private StringInterpolationSequence variable;
+    private SassListItem value = null;
+    private String comment;
     private boolean important;
 
     public RuleNode(StringInterpolationSequence variable, SassListItem value,

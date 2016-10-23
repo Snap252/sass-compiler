@@ -33,7 +33,7 @@ import com.vaadin.sass.internal.parser.Variable;
  */
 public abstract class DefNode extends Node implements Definition,
         IVariableNode, NodeWithUrlContent {
-    private String name;
+    private final String name;
     private FormalArgumentList arglist;
     private Scope definitionScope;
 

@@ -22,7 +22,7 @@ import java.util.Collections;
 import com.vaadin.sass.internal.ScssContext;
 
 public class KeyframeSelectorNode extends Node {
-    private String selector;
+    private final String selector;
 
     public KeyframeSelectorNode(String selector) {
         this.selector = selector;

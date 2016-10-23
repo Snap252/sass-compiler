@@ -29,8 +29,8 @@ public class ImportNode extends Node implements NodeWithUrlContent {
     private static final long serialVersionUID = 5671255892282668438L;
 
     private String uri;
-    private SACMediaList ml;
-    private boolean isURL;
+    private final SACMediaList ml;
+    private final boolean isURL;
 
     // the stylesheet which contained this import node - usually empty as its
     // contents have been moved to its parent, but used to access resolvers,

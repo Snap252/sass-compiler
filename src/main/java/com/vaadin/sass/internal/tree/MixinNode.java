@@ -45,7 +45,7 @@ public class MixinNode extends Node implements IVariableNode,
     // these are the actual parameter values, not whether the definition node
     // uses varargs
     private ActualArgumentList arglist;
-    private String name;
+    private final String name;
 
     public MixinNode(String name) {
         this(name, new ArrayList<Variable>(), false);

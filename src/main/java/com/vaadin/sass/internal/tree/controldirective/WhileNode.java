@@ -25,7 +25,7 @@ import com.vaadin.sass.internal.visitor.WhileNodeHandler;
 
 public class WhileNode extends Node {
 
-    private SassListItem condition;
+    private final SassListItem condition;
 
     public WhileNode(SassListItem condition) {
         this.condition = condition;

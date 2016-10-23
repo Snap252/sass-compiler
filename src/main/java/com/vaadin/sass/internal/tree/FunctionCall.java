@@ -34,7 +34,11 @@ import com.vaadin.sass.internal.parser.Variable;
  * function. This class is used to evaluate the function call and is discarded
  * after use. A FunctionCall does not have a parent in the stylesheet node tree.
  */
-public class FunctionCall {
+public final class FunctionCall {
+	
+	private FunctionCall() {
+		/* util class */
+	}
 
     public static SassListItem evaluate(ScssContext context,
             FunctionDefNode def, LexicalUnitImpl invocation) {

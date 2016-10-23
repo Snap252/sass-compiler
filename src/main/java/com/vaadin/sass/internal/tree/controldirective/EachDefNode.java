@@ -30,7 +30,7 @@ public class EachDefNode extends Node implements IVariableNode,
         NodeWithUrlContent {
     private static final long serialVersionUID = 7943948981204906221L;
 
-    private String var;
+    private final String var;
     private SassListItem list;
 
     public EachDefNode(String var, SassListItem list) {

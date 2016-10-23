@@ -27,7 +27,7 @@ import com.vaadin.sass.internal.tree.Node;
  */
 public class TemporaryNode extends Node {
 
-    private Node parentNode;
+    private final Node parentNode;
 
     public TemporaryNode(Node parent) {
         parentNode = parent;

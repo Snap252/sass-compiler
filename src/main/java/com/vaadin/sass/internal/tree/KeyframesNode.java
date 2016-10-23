@@ -23,7 +23,7 @@ import com.vaadin.sass.internal.ScssContext;
 import com.vaadin.sass.internal.parser.StringInterpolationSequence;
 
 public class KeyframesNode extends Node implements IVariableNode {
-    private String keyframeName;
+    private final String keyframeName;
     private StringInterpolationSequence animationName;
 
     public KeyframesNode(String keyframeName,

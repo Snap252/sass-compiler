@@ -89,7 +89,7 @@ public class SassCompiler {
         errorHandler.setWarningsAreErrors(!ignoreWarnings);
         try {
             // Parse stylesheet
-            ScssStylesheet scss = ScssStylesheet.get(input, null,
+            final ScssStylesheet scss = ScssStylesheet.get(input, null,
                     new SCSSDocumentHandlerImpl(), errorHandler);
             if (scss == null) {
                 System.err.println("The scss file " + input
