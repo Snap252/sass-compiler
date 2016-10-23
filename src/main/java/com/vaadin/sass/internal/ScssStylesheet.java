@@ -44,7 +44,7 @@ import com.vaadin.sass.internal.resolver.ScssStylesheetResolver;
 import com.vaadin.sass.internal.tree.Node;
 import com.vaadin.sass.internal.visitor.ExtendNodeHandler;
 
-public class ScssStylesheet extends Node {
+public final class ScssStylesheet extends Node {
 
     private static final long serialVersionUID = 3849790204404961608L;
 
@@ -144,8 +144,7 @@ public class ScssStylesheet extends Node {
         }
 
         // FIXME Is this actually intended? /John 1.3.2013
-        File file = new File(identifier);
-        file = file.getCanonicalFile();
+        new File(identifier).getCanonicalFile();
 
         ScssStylesheet stylesheet = documentHandler.getStyleSheet();
         if (parentStylesheet == null) {

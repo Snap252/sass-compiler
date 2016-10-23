@@ -19,7 +19,7 @@ package com.vaadin.sass.testcases.scss;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Test;
 import org.w3c.css.sac.CSSException;

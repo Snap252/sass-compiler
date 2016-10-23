@@ -19,7 +19,7 @@ package com.vaadin.sass.testcases.scss;
 import java.io.IOException;
 
 import com.vaadin.sass.internal.parser.LexicalUnitImpl;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Test;
 import org.w3c.css.sac.CSSException;
@@ -57,7 +57,7 @@ public class Variables extends AbstractTestBase {
         VariableNode varNode2 = (VariableNode) root.getChildren().get(1);
         Assert.assertEquals("margin", varNode2.getName());
         Assert.assertEquals(8f, varNode2.getExpr().getContainedValue()
-                .getFloatValue());
+                .getFloatValue(), 0.0);
         Assert.assertEquals("px", varNode2.getExpr().getContainedValue()
                 .getDimensionUnitText());
 

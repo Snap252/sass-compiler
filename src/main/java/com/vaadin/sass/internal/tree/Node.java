@@ -30,13 +30,13 @@ import com.vaadin.sass.internal.tree.controldirective.TemporaryNode;
 
 public abstract class Node implements Serializable {
 
-    public static BuildStringStrategy PRINT_STRATEGY = new PrintStrategy();
+    public static final BuildStringStrategy PRINT_STRATEGY = new PrintStrategy();
 
-    public static BuildStringStrategy TO_STRING_STRATEGY = new ToStringStrategy();
+    public static final BuildStringStrategy TO_STRING_STRATEGY = new ToStringStrategy();
 
     private static final long serialVersionUID = 5914711715839294816L;
 
-    private ArrayList<Node> children = null;
+    private ArrayList<Node> children;
 
     private Node parentNode;
 

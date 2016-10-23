@@ -42,7 +42,7 @@ public class StringUtil {
                 FOLDER_SEPARATOR);
         String[] pathArray = delimitedListToStringArray(pathToUse,
                 FOLDER_SEPARATOR);
-        List pathElements = new LinkedList();
+        List<String> pathElements = new LinkedList<String>();
         int tops = 0;
         for (int i = pathArray.length - 1; i >= 0; i--) {
             if (CURRENT_PATH.equals(pathArray[i])) {
@@ -99,7 +99,7 @@ public class StringUtil {
             return new String[] { str };
         }
 
-        List result = new ArrayList();
+        List<String> result = new ArrayList<String>();
         int pos = 0;
         int delPos = 0;
         while ((delPos = str.indexOf(delimiter, pos)) != -1) {
@@ -114,14 +114,14 @@ public class StringUtil {
         return (String[]) result.toArray(new String[result.size()]);
     }
 
-    public static String collectionToDelimitedString(Collection coll,
+    public static String collectionToDelimitedString(Collection<String> coll,
             String delim, String prefix, String suffix) {
         if (coll == null) {
             return "";
         }
 
         StringBuffer sb = new StringBuffer();
-        Iterator it = coll.iterator();
+        Iterator<String> it = coll.iterator();
         int i = 0;
         while (it.hasNext()) {
             if (i > 0) {
@@ -133,7 +133,7 @@ public class StringUtil {
         return sb.toString();
     }
 
-    public static String collectionToDelimitedString(Collection coll,
+    public static String collectionToDelimitedString(Collection<String> coll,
             String delim) {
         return collectionToDelimitedString(coll, delim, "", "");
     }

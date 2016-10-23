@@ -17,8 +17,8 @@
 package com.vaadin.sass;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 
 import org.apache.commons.io.IOUtils;
@@ -26,53 +26,32 @@ import org.w3c.css.sac.CSSException;
 
 import com.vaadin.sass.internal.ScssStylesheet;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public abstract class AbstractTestBase {
 
     public static final String CR = "\r";
 
-    protected ScssStylesheet stylesheet;
     protected String originalScss;
     protected String parsedScss;
     protected String comparisonCss;
 
     public ScssStylesheet getStyleSheet(String filename)
             throws URISyntaxException, CSSException, IOException {
-        File file = getFile(filename);
-        stylesheet = ScssStylesheet.get(file.getAbsolutePath());
-        return stylesheet;
+        final File file = new File(getClass().getResource(filename).toURI());
+        return ScssStylesheet.get(file.getAbsolutePath());
     }
 
-    public File getFile(String filename) throws URISyntaxException,
-            CSSException, IOException {
-        return new File(getClass().getResource(filename).toURI());
-    }
-
-    public String getFileContent(String filename) throws IOException,
+    public final String getFileContent(String filename) throws IOException,
             CSSException, URISyntaxException {
-        File file = getFile(filename);
-        return getFileContent(file);
+        return IOUtils.toString(getClass().getResourceAsStream(filename), "UTF-8");
     }
 
-    /**
-     * Read in the full content of a file into a string.
-     * 
-     * @param file
-     *            the file to be read
-     * @return a String with the content of the
-     * @throws IOException
-     *             when file reading fails
-     */
-    public String getFileContent(File file) throws IOException {
-        return IOUtils.toString(new FileInputStream(file), "UTF-8");
-    }
-
-    public ScssStylesheet testParser(String file) throws CSSException,
+    public ScssStylesheet testParser(String fileName) throws CSSException,
             IOException, URISyntaxException {
-        originalScss = getFileContent(file);
+        originalScss = getFileContent(fileName);
         originalScss = originalScss.replaceAll(CR, "");
-        ScssStylesheet sheet = getStyleSheet(file);
+        ScssStylesheet sheet = getStyleSheet(fileName);
         parsedScss = sheet.printState();
         parsedScss = parsedScss.replace(CR, "");
         Assert.assertEquals("Original CSS and parsed CSS do not match",
@@ -80,9 +59,9 @@ public abstract class AbstractTestBase {
         return sheet;
     }
 
-    public ScssStylesheet testCompiler(String scss, String css)
+    public ScssStylesheet testCompiler(String scss, String cssFileName)
             throws Exception {
-        comparisonCss = getFileContent(css);
+        comparisonCss = getFileContent(cssFileName);
         comparisonCss = comparisonCss.replaceAll(CR, "");
         ScssStylesheet sheet = getStyleSheet(scss);
         sheet.compile();

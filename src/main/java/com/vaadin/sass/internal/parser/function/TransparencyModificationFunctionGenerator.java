@@ -100,18 +100,4 @@ public class TransparencyModificationFunctionGenerator extends
     private float getFloat(ActualArgumentList params, int i) {
         return params.get(i).getContainedValue().getFloatValue();
     }
-
-    private int getInteger(ActualArgumentList colorComponents, int i) {
-        return colorComponents.get(i).getContainedValue().getIntegerValue();
-    }
-
-    private LexicalUnitImpl createNumber(LexicalUnitImpl parent, float value) {
-        return LexicalUnitImpl.createNumber(parent.getLineNumber(),
-                parent.getColumnNumber(), value);
-    }
-
-    private LexicalUnitImpl createNumber(LexicalUnitImpl parent, int value) {
-        return LexicalUnitImpl.createNumber(parent.getLineNumber(),
-                parent.getColumnNumber(), value);
-    }
 }

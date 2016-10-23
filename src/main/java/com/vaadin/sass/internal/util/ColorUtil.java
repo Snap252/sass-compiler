@@ -395,18 +395,6 @@ public class ColorUtil {
         return builder.toString();
     }
 
-    private static LexicalUnitImpl hslToColor(LexicalUnitImpl hsl) {
-        String colorString = rgbToColorString(hslToRgb(hsl));
-        return LexicalUnitImpl.createIdent(colorString);
-    }
-
-    private static LexicalUnitImpl colorToHslUnit(LexicalUnitImpl color) {
-        float[] hsl = colorToHsl(color);
-
-        return createHslFunction(hsl[0], hsl[1], hsl[2], color.getLineNumber(),
-                color.getColumnNumber());
-    }
-
     private static int[] hslToRgb(LexicalUnitImpl hsl) {
         ActualArgumentList hslParam = hsl.getParameterList();
         if (hslParam.size() != 3 && hslParam.size() != 4) {
@@ -586,14 +574,6 @@ public class ColorUtil {
 
     public static LexicalUnitImpl lighten(LexicalUnitImpl color, float amount) {
         return adjust(color, amount, ColorOperation.Lighten);
-    }
-
-    private static float getAmountValue(ActualArgumentList params) {
-        float amount = 10f;
-        if (params.size() > 1) {
-            amount = params.get(1).getContainedValue().getFloatValue();
-        }
-        return amount;
     }
 
     private enum ColorOperation {
