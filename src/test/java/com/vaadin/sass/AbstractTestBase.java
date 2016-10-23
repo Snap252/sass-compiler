@@ -17,16 +17,16 @@
 package com.vaadin.sass;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
-
-import junit.framework.Assert;
 
 import org.apache.commons.io.IOUtils;
 import org.w3c.css.sac.CSSException;
 
 import com.vaadin.sass.internal.ScssStylesheet;
+
+import junit.framework.Assert;
 
 public abstract class AbstractTestBase {
 
@@ -65,7 +65,7 @@ public abstract class AbstractTestBase {
      *             when file reading fails
      */
     public String getFileContent(File file) throws IOException {
-        return IOUtils.toString(new FileReader(file));
+        return IOUtils.toString(new FileInputStream(file), "UTF-8");
     }
 
     public ScssStylesheet testParser(String file) throws CSSException,

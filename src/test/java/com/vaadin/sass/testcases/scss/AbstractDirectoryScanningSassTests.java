@@ -120,7 +120,7 @@ public abstract class AbstractDirectoryScanningSassTests {
 
         if (getCssFile(scssFile) != null) {
             String referenceCss = IOUtils.toString(new FileInputStream(
-                    getCssFile(scssFile)));
+                    getCssFile(scssFile)), "UTF-8");
             String normalizedReference = normalize(referenceCss);
             String normalizedParsed = normalize(parsedCss);
 
