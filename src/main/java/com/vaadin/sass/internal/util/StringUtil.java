@@ -111,7 +111,7 @@ public class StringUtil {
             result.add(str.substring(pos));
         }
 
-        return (String[]) result.toArray(new String[result.size()]);
+        return result.toArray(new String[result.size()]);
     }
 
     public static String collectionToDelimitedString(Collection<String> coll,
