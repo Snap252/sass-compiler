@@ -136,9 +136,8 @@ public abstract class AbstractResolver implements ScssStylesheetResolver,
      *            The identifier to resolve
      * @return An input source if the resolver found one or null otherwise
      */
-    protected InputSource normalizeAndResolve(String identifier) {
-        String normalized = normalize(identifier);
-        return resolveNormalized(normalized);
+    private InputSource normalizeAndResolve(String identifier) {
+        return resolveNormalized(normalize(identifier));
     }
 
     /**
@@ -160,7 +159,7 @@ public abstract class AbstractResolver implements ScssStylesheetResolver,
      *            A relative or absolute file path
      * @return The normalized path
      */
-    protected String normalize(String path) {
+    private static String normalize(String path) {
 
         // Ensure only "/" is used, also in Windows
         path = path.replace(File.separatorChar, '/');

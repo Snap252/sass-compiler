@@ -15,6 +15,7 @@
  */
 package com.vaadin.sass.internal.resolver;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -63,7 +64,7 @@ public class FilesystemResolver extends AbstractResolver {
         try {
             InputStream is = new FileInputStream(fileName);
             InputSource source = new InputSource();
-            source.setByteStream(is);
+            source.setByteStream(new BufferedInputStream(is));
             source.setURI(fileName);
             return source;
 

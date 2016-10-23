@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.text.MessageFormat;
 
 import org.apache.commons.io.IOUtils;
 import org.w3c.css.sac.CSSException;
@@ -36,18 +37,18 @@ public abstract class AbstractTestBase {
     protected String parsedScss;
     protected String comparisonCss;
 
-    public ScssStylesheet getStyleSheet(String filename)
+    protected final ScssStylesheet getStyleSheet(String filename)
             throws URISyntaxException, CSSException, IOException {
         final File file = new File(getClass().getResource(filename).toURI());
         return ScssStylesheet.get(file.getAbsolutePath());
     }
 
-    public final String getFileContent(String filename) throws IOException,
+    protected final String getFileContent(String filename) throws IOException,
             CSSException, URISyntaxException {
         return IOUtils.toString(getClass().getResourceAsStream(filename), "UTF-8");
     }
 
-    public ScssStylesheet testParser(String fileName) throws CSSException,
+    protected final ScssStylesheet testParser(String fileName) throws CSSException,
             IOException, URISyntaxException {
         originalScss = getFileContent(fileName);
         originalScss = originalScss.replaceAll(CR, "");
@@ -59,7 +60,7 @@ public abstract class AbstractTestBase {
         return sheet;
     }
 
-    public ScssStylesheet testCompiler(String scss, String cssFileName)
+    protected final ScssStylesheet testCompiler(String scss, String cssFileName)
             throws Exception {
         comparisonCss = getFileContent(cssFileName);
         comparisonCss = comparisonCss.replaceAll(CR, "");
