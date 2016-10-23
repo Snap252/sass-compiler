@@ -291,6 +291,7 @@ public final class ArgumentParser {
         if (o == null) {
             // Fail on invalid option. This halts the program.
             invalidOption(optName);
+            return;
         }
 
         if (o == helpOption) {

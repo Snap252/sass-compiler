@@ -95,6 +95,7 @@ public class SassCompiler {
                 System.err.println("The scss file " + input
                         + " could not be found.");
                 System.exit(ERROR_FILE_NOT_FOUND);
+                return;
             }
 
             // Compile scss -> css
