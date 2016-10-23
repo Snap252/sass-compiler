@@ -30,7 +30,7 @@ import com.vaadin.sass.internal.tree.Node;
  * used in ActualArgumentList to represent the unnamed (positional) and named
  * parameters of an @include or a function call.
  */
-public class ArgumentList extends SassList implements Serializable {
+public class ArgumentList extends SassList {
     private List<Variable> namedVariables = new ArrayList<Variable>();
 
     public ArgumentList(SassList list) {

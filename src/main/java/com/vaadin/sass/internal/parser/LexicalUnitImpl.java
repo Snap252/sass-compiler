@@ -79,7 +79,7 @@ import com.vaadin.sass.internal.util.StringUtil;
  * 
  * @modified Sebastian Nyholm @ Vaadin Ltd
  */
-public class LexicalUnitImpl implements LexicalUnit, SCSSLexicalUnit,
+public class LexicalUnitImpl implements SCSSLexicalUnit,
         SassListItem, Serializable {
     private static final long serialVersionUID = -6649833716809789399L;
 
