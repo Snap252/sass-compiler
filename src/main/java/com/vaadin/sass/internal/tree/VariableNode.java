@@ -44,7 +44,8 @@ public class VariableNode extends Node implements Definition, IVariableNode,
         variable.setExpr(expr);
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return variable.getName();
     }
 

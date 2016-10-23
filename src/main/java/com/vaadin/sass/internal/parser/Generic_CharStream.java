@@ -128,7 +128,8 @@ public final class Generic_CharStream implements CharStream {
         }
     }
 
-    public final char BeginToken() throws java.io.IOException {
+    @Override
+	public final char BeginToken() throws java.io.IOException {
         tokenBegin = -1;
         char c = readChar();
         tokenBegin = bufpos;
@@ -169,7 +170,8 @@ public final class Generic_CharStream implements CharStream {
         bufcolumn[bufpos] = column;
     }
 
-    public final char readChar() throws java.io.IOException {
+    @Override
+	public final char readChar() throws java.io.IOException {
         if (inBuf > 0) {
             --inBuf;
             return (char) ((char) 0xff & buffer[(bufpos == bufsize - 1) ? (bufpos = 0)
@@ -190,7 +192,8 @@ public final class Generic_CharStream implements CharStream {
      * @see #getEndColumn
      */
 
-    public final int getColumn() {
+    @Override
+	public final int getColumn() {
         return bufcolumn[bufpos];
     }
 
@@ -199,27 +202,33 @@ public final class Generic_CharStream implements CharStream {
      * @see #getEndLine
      */
 
-    public final int getLine() {
+    @Override
+	public final int getLine() {
         return bufline[bufpos];
     }
 
-    public final int getEndColumn() {
+    @Override
+	public final int getEndColumn() {
         return bufcolumn[bufpos];
     }
 
-    public final int getEndLine() {
+    @Override
+	public final int getEndLine() {
         return bufline[bufpos];
     }
 
-    public final int getBeginColumn() {
+    @Override
+	public final int getBeginColumn() {
         return bufcolumn[tokenBegin];
     }
 
-    public final int getBeginLine() {
+    @Override
+	public final int getBeginLine() {
         return bufline[tokenBegin];
     }
 
-    public final void backup(int amount) {
+    @Override
+	public final void backup(int amount) {
 
         inBuf += amount;
         if ((bufpos -= amount) < 0)
@@ -264,7 +273,8 @@ public final class Generic_CharStream implements CharStream {
         ReInit(dstream, startline, startcolumn, 4096);
     }
 
-    public final String GetImage() {
+    @Override
+	public final String GetImage() {
         if (bufpos >= tokenBegin)
             return new String(buffer, tokenBegin, bufpos - tokenBegin + 1);
         else
@@ -272,7 +282,8 @@ public final class Generic_CharStream implements CharStream {
                     + new String(buffer, 0, bufpos + 1);
     }
 
-    public final char[] GetSuffix(int len) {
+    @Override
+	public final char[] GetSuffix(int len) {
         char[] ret = new char[len];
 
         if ((bufpos + 1) >= len)
@@ -285,7 +296,8 @@ public final class Generic_CharStream implements CharStream {
         return ret;
     }
 
-    public void Done() {
+    @Override
+	public void Done() {
         buffer = null;
         bufline = null;
         bufcolumn = null;

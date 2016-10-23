@@ -114,7 +114,8 @@ public class SassList implements SassListItem, Iterable<SassListItem>,
     }
 
     // A helper method for sass interpolation
-    public String unquotedString() {
+    @Override
+	public String unquotedString() {
         if (size() != 1) {
             // preserve quotes if the list contains several elements
             return printState();
@@ -230,7 +231,8 @@ public class SassList implements SassListItem, Iterable<SassListItem>,
         return result;
     }
 
-    public String printState() {
+    @Override
+	public String printState() {
         return buildString(Node.PRINT_STRATEGY);
     }
 

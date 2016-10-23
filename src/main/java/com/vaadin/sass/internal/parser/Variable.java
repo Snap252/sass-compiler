@@ -50,7 +50,8 @@ public class Variable implements Definition, Serializable {
         this.expr = expr;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return name;
     }
 

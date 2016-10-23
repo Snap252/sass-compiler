@@ -51,7 +51,8 @@ public abstract class DefNode extends Node implements Definition,
         definitionScope = nodeToCopy.definitionScope;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return name;
     }
 
@@ -81,7 +82,8 @@ public abstract class DefNode extends Node implements Definition,
         definitionScope = scope;
     }
 
-    public DefNode updateUrl(String prefix) {
+    @Override
+	public DefNode updateUrl(String prefix) {
         DefNode newInstance = (DefNode) copy();
         newInstance.arglist = arglist.updateUrl(prefix);
         return newInstance;

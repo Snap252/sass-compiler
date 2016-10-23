@@ -119,7 +119,8 @@ public class SassExpression implements SassListItem, Serializable {
         return column;
     }
 
-    public boolean containsArithmeticalOperator() {
+    @Override
+	public boolean containsArithmeticalOperator() {
         for (SassListItem item : items) {
             if (item.containsArithmeticalOperator()) {
                 return true;

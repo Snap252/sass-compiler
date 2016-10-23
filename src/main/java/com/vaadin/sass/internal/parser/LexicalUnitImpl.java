@@ -141,11 +141,13 @@ public class LexicalUnitImpl implements LexicalUnit, SCSSLexicalUnit,
         this.params = params;
     }
 
-    public int getLineNumber() {
+    @Override
+	public int getLineNumber() {
         return line;
     }
 
-    public int getColumnNumber() {
+    @Override
+	public int getColumnNumber() {
         return column;
     }
 
@@ -295,7 +297,8 @@ public class LexicalUnitImpl implements LexicalUnit, SCSSLexicalUnit,
         }
     }
 
-    public String getStringValue() {
+    @Override
+	public String getStringValue() {
         return s == null ? null : s.toString();
     }
 
@@ -333,7 +336,8 @@ public class LexicalUnitImpl implements LexicalUnit, SCSSLexicalUnit,
      * 
      * @return State as a string
      */
-    public String printState() {
+    @Override
+	public String printState() {
         if (printState == null) {
             printState = buildString(Node.PRINT_STRATEGY);
         }
